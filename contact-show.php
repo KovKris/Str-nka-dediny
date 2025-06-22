@@ -1,11 +1,11 @@
 <?php
 include('partials/header.php');
-include('inc/classes/Database.php'); // Corrected path to Database.php
+include('inc/classes/Database.php'); 
 include('inc/classes/Contact.php');
 $db = new Database();
 $contact = new Contact($db);
 
-$contactData = null; // Initialize $contactData to avoid undefined variable warnings
+$contactData = null; 
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

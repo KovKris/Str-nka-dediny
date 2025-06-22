@@ -7,22 +7,21 @@ $db = new Database();
 $user = new User($db);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Sanitize and validate inputs
     $name = trim($_POST['name']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $role = isset($_POST['role']) && ($_POST['role'] == '0' || $_POST['role'] == '1') ? $_POST['role'] : null;
     $password = $_POST['password'];
 
-    // Check for missing or invalid inputs
+
     if (empty($name) || empty($email) || empty($role) || empty($password)) {
         echo "<p style='color: red;'>Všetky polia sú povinné.</p>";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "<p style='color: red;'>Neplatný email.</p>";
     } else {
-        // Hash the password before storing it
+
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        // Attempt to create the user
+ 
         if ($user->create($name, $email, $role, $hashedPassword)) {
             header("Location: admin.php");
             exit;

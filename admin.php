@@ -1,28 +1,24 @@
 <?php
 include('partials/header.php');
-include('inc/classes/Database.php'); // Corrected path to Database.php
-include('inc/classes/Authenticate.php'); // Ensure Authenticate.php is included
-include('inc/classes/Contact.php'); // Ensure Contact.php is included
+include('inc/classes/Database.php'); 
+include('inc/classes/Authenticate.php'); 
+include('inc/classes/Contact.php'); 
 include('inc/classes/User.php');
 
 $db = new Database();
 $auth = new Authenticate($db);
 $auth->requireLogin();
 
-// Získanie role prihláseného používateľa
 $userRole = $auth->getUserRole();
 
-// Kontakty
 $contact = new Contact($db);
 $contacts = $contact->index();
 
-// Používatelia (iba pre adminov)
 if ($userRole == 0) {
     $user = new User($db);
     $users = $user->index();
 }
 
-// Vymazanie správy
 if (isset($_GET['delete'])) {
     $contact->destroy($_GET['delete']);
     header("Location: admin.php");
@@ -35,7 +31,6 @@ if (isset($_GET['delete'])) {
 <section class="container">
     <h1>Vítaj</h1>
 
-    <!-- Sekcia kontaktov -->
     <h2>Kontakty</h2>
     <a href="contact-create.php" class="button">Create Contact</a>
     <table border="1">
@@ -61,7 +56,6 @@ if (isset($_GET['delete'])) {
         <?php endforeach; ?>
     </table>
 
-    <!-- Sekcia používateľov (iba pre adminov) -->
     <?php if ($userRole == 0): ?>
         <h2>Používatelia</h2>
         <a href="user-create.php" class="button">Create User</a>

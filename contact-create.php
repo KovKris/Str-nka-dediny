@@ -1,6 +1,6 @@
 <?php
 include('partials/header.php');
-include('inc/classes/Database.php'); // Corrected path to Database.php
+include('inc/classes/Database.php'); 
 include('inc/classes/Contact.php');
 $db = new Database();
 $contact = new Contact($db);
@@ -8,7 +8,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
-    //print_r($_POST);
     if ($contact->create($name, $email, $message)) {
       header("Location: admin.php");
       exit;
@@ -26,7 +25,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         <input type="submit" value="Odoslať">
     </form>
 </section>
-
 <?php
 include('partials/footer.php');
 ?>

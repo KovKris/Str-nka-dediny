@@ -6,7 +6,7 @@ include('inc/classes/User.php');
 $db = new Database();
 $user = new User($db);
 
-$userData = null; // Initialize $userData to avoid undefined variable warnings
+$userData = null; 
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
