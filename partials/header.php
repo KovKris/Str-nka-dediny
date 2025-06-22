@@ -16,7 +16,7 @@ http://www.templatemo.com/preview/templatemo_315_village
 <body>
 
 <div id="templatemo_header_wrapper">
-	<div id="templatemo_header">
+    <div id="templatemo_header">
 
         <div id="site_title">
             <a href="#"><img src="images/templatemo_logo.png" alt="Village Template" /></a>
@@ -33,10 +33,11 @@ http://www.templatemo.com/preview/templatemo_315_village
                 </ul>   
                 <div class="cleaner"></div> 	
             </div> <!-- end of templatemo_menu -->
+            
             <div class="cleaner"></div>
-			<a href="#" class="rss_twitter twitter">Follow Us</a>
+            <a href="#" class="rss_twitter twitter">Follow Us</a>
             <a href="#" class="rss_twitter rss">Subscribe</a>
-		</div>
+        </div>
                 
         <div class="cleaner"></div>
 
