@@ -12,11 +12,6 @@ CREATE TABLE `categories` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_slovak_ci;
 
-INSERT INTO `categories` (`id`, `name`, `created_at`) VALUES
-(1, 'ecommerce', '2025-04-07 13:54:36'),
-(2, 'prezentačné stránky', '2025-04-07 13:54:36'),
-(3, 'blogy', '2025-04-07 13:54:36'),
-(4, 'webové aplikácie', '2025-04-07 13:54:36');
 
 
 CREATE TABLE `contact` (
@@ -28,9 +23,6 @@ CREATE TABLE `contact` (
 
 
 
-INSERT INTO `contact` (`id`, `name`, `email`, `message`) VALUES
-(1, 'Livia', 'lkelebercova@ukf.sk', 'Moja sprava'),
-(2, 'a', 'kelebercova24@gmail.com', '<script>\r\nalert(\'hello\');\r\n</script>');
 
 
 
@@ -53,7 +45,7 @@ CREATE TABLE `portfolio_categories` (
 
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `email` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -63,9 +55,6 @@ CREATE TABLE `users` (
 
 
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `created_at`) VALUES
-(5, 'admin', 'admin@example.com', '$2y$10$D70SoY/KX7O0w2w/CJi97.JbqCJ1dwTP6F.w24sMBVFlrxSF8gSCC', 0, '2025-04-28 21:30:33'),
-(6, 'user', 'user@example.com', '$2y$10$G2GzEDQtlA.32.FFiNyV1.uMgAxdD7jmm40jdNKFVrSSodTqLp2q2', 1, '2025-04-28 21:30:49');
 
 
 ALTER TABLE `categories`

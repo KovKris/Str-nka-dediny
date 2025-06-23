@@ -14,13 +14,13 @@ class User {
     }
 
     public function show($id) {
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE id = :id");
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
+            $stmt = $this->db->prepare("SELECT * FROM users WHERE id = :id");
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
 
-    public function create($name, $email, $role, $password) {
+        public function create($name, $email, $role, $password) {
         $stmt = $this->db->prepare("SELECT id FROM users WHERE email = :email");
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
@@ -29,8 +29,6 @@ class User {
             return false;
         }
 
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-
         $stmt = $this->db->prepare("
             INSERT INTO users (name, email, role, password) 
             VALUES (:name, :email, :role, :password)
@@ -38,10 +36,12 @@ class User {
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->bindParam(':role', $role, PDO::PARAM_STR);
-        $stmt->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
+        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
 
         return $stmt->execute();
     }
+
+    
 
     public function edit($id, $name, $email, $role) {
         $stmt = $this->db->prepare("SELECT id FROM users WHERE email = :email AND id != :id");

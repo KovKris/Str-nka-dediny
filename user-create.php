@@ -13,15 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
 
-    if (empty($name) || empty($email) || empty($role) || empty($password)) {
+    if ($name === '' || $email === '' || $role === null || $password === '') {
         echo "<p style='color: red;'>Všetky polia sú povinné.</p>";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "<p style='color: red;'>Neplatný email.</p>";
     } else {
-
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
- 
         if ($user->create($name, $email, $role, $hashedPassword)) {
             header("Location: admin.php");
             exit;
@@ -47,15 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="password" placeholder="Heslo" id="password" name="password" required><br>
         <input type="submit" value="Vytvoriť">
     </form>
-    <br>
-    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 15px; margin-left: 0;">
-        <div style="border:1px solid #ccc; padding:5px; width:70px; background:gray; text-align:center;">
-            <a href="user-edit.php" class="button" style="display:block;">Upraviť používateľa</a>
-        </div>
-        <div style="border:1px solid #ccc; padding:5px; width:70px; background:gray; text-align:center;">
-            <a href="usershow.php" class="button" style="display:block;">Zobraziť používateľa</a>
-        </div>
-    </div>
 </section>
 
 <?php

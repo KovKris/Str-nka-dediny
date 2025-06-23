@@ -30,7 +30,7 @@ http://www.templatemo.com/preview/templatemo_315_village
                     <li><a href="services.php">Services</a></li>
                     <li><a href="news.php">News</a></li>
                     <li><a href="contact.php">Contact</a></li>
-                    <li><a href="login.php" style="font-weight:bold;">Login</a></li> <!-- Login button always after Contact -->
+                    <li style='float:right;margin-top:-18px'><a href="login.php">Login</a></li>
                 </ul>   
                 <div class="cleaner"></div> 	
             </div> 
