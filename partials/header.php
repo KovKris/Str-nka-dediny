@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -15,6 +20,7 @@ http://www.templatemo.com/preview/templatemo_315_village
 </head>
 <body>
 
+
 <div id="templatemo_header_wrapper">
     <div id="templatemo_header">
 
@@ -30,7 +36,11 @@ http://www.templatemo.com/preview/templatemo_315_village
                     <li><a href="services.php">Services</a></li>
                     <li><a href="news.php">News</a></li>
                     <li><a href="contact.php">Contact</a></li>
-                    <li style='float:right;margin-top:-18px'><a href="login.php">Login</a></li>
+                    <?php if (isset($_SESSION['id'])): ?>
+                        <li style="float:right; margin-top:-17px;"><a href="logout.php">Logout</a></li>
+                    <?php else: ?>
+                        <li style="float:right; margin-top:-17px;"><a href="login.php">Login</a></li>
+                    <?php endif; ?>
                 </ul>   
                 <div class="cleaner"></div> 	
             </div> 

@@ -1,5 +1,6 @@
 <?php
-require_once('_inc/autoload.php');
+include('inc/classes/Database.php');
+include('inc/classes/Authenticate.php');
 
 $db = new Database();
 $auth = new Authenticate($db);
