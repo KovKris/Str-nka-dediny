@@ -10,7 +10,7 @@
 Village Template 
 http://www.templatemo.com/preview/templatemo_315_village 
 -->
-<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+<link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -20,7 +20,7 @@ http://www.templatemo.com/preview/templatemo_315_village
 
         <div id="site_title">
             <a href="#"><img src="images/templatemo_logo.png" alt="Village Template" /></a>
-        </div> <!-- end of site_title -->
+        </div>
         
         <div id="header_right">
             <div id="templatemo_menu">
@@ -30,9 +30,10 @@ http://www.templatemo.com/preview/templatemo_315_village
                     <li><a href="services.php">Services</a></li>
                     <li><a href="news.php">News</a></li>
                     <li><a href="contact.php">Contact</a></li>
+                    <li><a href="login.php" style="font-weight:bold;">Login</a></li> <!-- Login button always after Contact -->
                 </ul>   
                 <div class="cleaner"></div> 	
-            </div> <!-- end of templatemo_menu -->
+            </div> 
             
             <div class="cleaner"></div>
             <a href="#" class="rss_twitter twitter">Follow Us</a>
@@ -41,5 +42,5 @@ http://www.templatemo.com/preview/templatemo_315_village
                 
         <div class="cleaner"></div>
 
-    </div> <!-- end of templatemo_header -->
-</div> <!-- end of header_wrapper -->
+    </div> 
+</div>
